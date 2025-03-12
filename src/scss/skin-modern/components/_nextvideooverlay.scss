@@ -1,0 +1,22 @@
+@import '../variables';
+@import '../mixins';
+
+.#{$prefix}-ui-nextvideooverlay {
+  @extend %ui-button;
+
+  background-color: $color-background-highlight;
+  font-size: 1.1em;
+  margin: .3em .6em;
+  outline: 2px solid $color-highlight;
+  padding: .4em;
+  
+  .bmpui-label {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+
+

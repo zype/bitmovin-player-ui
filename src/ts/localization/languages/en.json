@@ -76,5 +76,7 @@
   "seekBar.timeshift": "Timeshift",
   "seekBar.durationText": "out of",
   "quickseek.forward": "Fast Forward",
-  "quickseek.rewind": "Rewind"
+  "quickseek.rewind": "Rewind",
+  "previous": "Previous",
+  "next": "Next"
 }

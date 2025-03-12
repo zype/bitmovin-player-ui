@@ -51,6 +51,12 @@ import { SpatialNavigation } from './spatialnavigation/spatialnavigation';
 import { RootNavigationGroup } from './spatialnavigation/rootnavigationgroup';
 import { ListNavigationGroup, ListOrientation } from './spatialnavigation/ListNavigationGroup';
 import { EcoModeContainer } from './components/ecomodecontainer';
+import { QuickSeekButton } from './components/quickseekbutton';
+import { NextVideoButton} from './components/nextvideobutton'
+import { PreviousVideoButton } from './components/previousvideobutton'
+import { NextVideoOverlay } from './components/nextvideooverlay'
+import { ZypeUIConfig } from './zypeuiconfig';
+import { Component, ComponentConfig } from './components/component';
 
 export namespace UIFactory {
   export function buildDefaultUI(player: PlayerAPI, config: UIConfig = {}): UIManager {
@@ -67,6 +73,147 @@ export namespace UIFactory {
 
   export function buildDefaultTvUI(player: PlayerAPI, config: UIConfig = {}): UIManager {
     return UIFactory.buildModernTvUI(player, config);
+  }
+
+  export function zypeUI(config: ZypeUIConfig) {
+    let subtitleOverlay = new SubtitleOverlay();
+
+    let mainSettingsPanelPage: SettingsPanelPage;
+
+    const components: Container<ContainerConfig>[] = [
+      new SettingsPanelItem(i18n.getLocalizer('settings.video.quality'), new VideoQualitySelectBox()),
+      new SettingsPanelItem(i18n.getLocalizer('speed'), new PlaybackSpeedSelectBox()),
+      new SettingsPanelItem(i18n.getLocalizer('settings.audio.track'), new AudioTrackSelectBox()),
+      new SettingsPanelItem(i18n.getLocalizer('settings.audio.quality'), new AudioQualitySelectBox()),
+    ];
+
+    if (config.ecoMode) {
+      const ecoModeContainer = new EcoModeContainer();
+
+      ecoModeContainer.setOnToggleCallback(() => {
+        // forces the browser to re-calculate the height of the settings panel when adding/removing elements
+        settingsPanel.getDomElement().css({ width: '', height: '' });
+      });
+
+      components.unshift(ecoModeContainer);
+    }
+
+    mainSettingsPanelPage = new SettingsPanelPage({
+      components,
+    });
+
+    let settingsPanel = new SettingsPanel({
+      components: [mainSettingsPanelPage],
+      hidden: true,
+    });
+
+    let subtitleSettingsPanelPage = new SubtitleSettingsPanelPage({
+      settingsPanel: settingsPanel,
+      overlay: subtitleOverlay,
+    });
+
+    const subtitleSelectBox = new SubtitleSelectBox();
+
+    let subtitleSettingsOpenButton = new SettingsPanelPageOpenButton({
+      targetPage: subtitleSettingsPanelPage,
+      container: settingsPanel,
+      ariaLabel: i18n.getLocalizer('settings.subtitles'),
+      text: i18n.getLocalizer('open'),
+    });
+
+    mainSettingsPanelPage.addComponent(
+      new SettingsPanelItem(
+        new SubtitleSettingsLabel({
+          text: i18n.getLocalizer('settings.subtitles'),
+          opener: subtitleSettingsOpenButton,
+        }),
+        subtitleSelectBox,
+        {
+          role: 'menubar',
+        },
+      ),
+    );
+
+    settingsPanel.addComponent(subtitleSettingsPanelPage);
+
+    let controlsComponents: Component<ComponentConfig>[] = [
+      new PlaybackToggleButton(),
+      new QuickSeekButton({ seekSeconds: -10 }),
+      new QuickSeekButton({ seekSeconds: 10 }),
+    ];
+
+    if(config.continueWatching?.previousVideo){
+      controlsComponents.push(new PreviousVideoButton(config.continueWatching.previousVideo));
+    }
+    if(config.continueWatching?.nextVideo){
+      controlsComponents.push(new NextVideoButton(config.continueWatching.nextVideo));
+    }
+    
+    controlsComponents.push(
+      new VolumeToggleButton(),
+      new VolumeSlider(),
+      new Spacer(),
+      new PictureInPictureToggleButton(),
+      new AirPlayToggleButton(),
+      new CastToggleButton(),
+      new VRToggleButton(),
+      new SettingsToggleButton({ settingsPanel: settingsPanel }),
+      new FullscreenToggleButton()
+    );
+
+    let nextVideoComponents: Component<ComponentConfig>[] = [];
+
+    if(config.continueWatching?.nextVideo){
+      nextVideoComponents.push(new NextVideoOverlay(config.continueWatching.nextVideo));
+    }
+
+    let controlBar = new ControlBar({
+      components: [
+        new Container({
+          components: nextVideoComponents,
+          cssClasses: ['controlbar-bottom'],
+        }),
+        settingsPanel,
+        new Container({
+          components: [
+            new PlaybackTimeLabel({
+              timeLabelMode: PlaybackTimeLabelMode.CurrentTime,
+              hideInLivePlayback: true,
+            }),
+            new SeekBar({ label: new SeekBarLabel() }),
+            new PlaybackTimeLabel({
+              timeLabelMode: PlaybackTimeLabelMode.TotalTime,
+              cssClasses: ['text-right'],
+            }),
+          ],
+          cssClasses: ['controlbar-top'],
+        }),
+        new Container({
+          components: controlsComponents,
+          cssClasses: ['controlbar-bottom'],
+        }),
+      ],
+    });
+
+    return new UIContainer({
+      components: [
+        subtitleOverlay,
+        new BufferingOverlay(),
+        new PlaybackToggleOverlay(),
+        new CastStatusOverlay(),
+        controlBar,
+        new TitleBar(),
+        new RecommendationOverlay(),
+        new Watermark(),
+        new ErrorMessageOverlay(),
+      ],
+      hideDelay: 2000,
+      hidePlayerStateExceptions: [
+        PlayerUtils.PlayerState.Prepared,
+        PlayerUtils.PlayerState.Paused,
+        PlayerUtils.PlayerState.Finished,
+      ],
+    });
   }
 
   export function modernUI(config: UIConfig) {
@@ -391,6 +538,49 @@ export namespace UIFactory {
         PlayerUtils.PlayerState.Finished,
       ],
     });
+  }
+
+  export function buildZypeUI(player: PlayerAPI, config: ZypeUIConfig = {}): UIManager {
+    // show smallScreen UI only on mobile/handheld devices
+    let smallScreenSwitchWidth = 600;
+
+    return new UIManager(
+      player,
+      [
+        {
+          ui: modernSmallScreenAdsUI(),
+          condition: (context: UIConditionContext) => {
+            return (
+              context.isMobile && context.documentWidth < smallScreenSwitchWidth && context.isAd && context.adRequiresUi
+            );
+          },
+        },
+        {
+          ui: modernAdsUI(),
+          condition: (context: UIConditionContext) => {
+            return context.isAd && context.adRequiresUi;
+          },
+        },
+        {
+          ui: modernSmallScreenUI(),
+          condition: (context: UIConditionContext) => {
+            return (
+              !context.isAd &&
+              !context.adRequiresUi &&
+              context.isMobile &&
+              context.documentWidth < smallScreenSwitchWidth
+            );
+          },
+        },
+        {
+          ui: zypeUI(config),
+          condition: (context: UIConditionContext) => {
+            return !context.isAd && !context.adRequiresUi;
+          },
+        },
+      ],
+      config,
+    );
   }
 
   export function buildModernUI(player: PlayerAPI, config: UIConfig = {}): UIManager {

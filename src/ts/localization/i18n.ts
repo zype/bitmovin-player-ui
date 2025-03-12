@@ -101,6 +101,8 @@ export interface Vocabulary {
   'seekBar.durationText': string;
   'ecoMode': string;
   'ecoMode.title': string;
+  'continuewatching.prev': string;
+  'continuewatching.next': string;
 }
 
 /**
