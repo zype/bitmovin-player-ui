@@ -9,14 +9,11 @@
   margin: .3em .6em;
   outline: 2px solid $color-highlight;
   padding: .4em;
-  
+
   .bmpui-label {
     display: block;
-    text-overflow: ellipsis;
     overflow: hidden;
+    text-overflow: ellipsis;
     width: 100%;
   }
 }
-
-
-

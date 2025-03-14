@@ -1,0 +1,12 @@
+@import '../variables';
+@import '../mixins';
+
+.#{$prefix}-ui-socialbutton {
+  @extend %ui-button;
+
+  background-image: url('../../assets/skin-modern/images/brands/share.svg');
+
+  &:hover {
+    @include svg-icon-shadow;
+  }
+}

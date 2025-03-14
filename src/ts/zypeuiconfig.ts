@@ -13,9 +13,16 @@ export interface ContinueWatchingItemConfig {
   callback: () => void;
 }
 
+export interface SocialConfig {
+  embedCode?: string,
+  url?: string,
+}
+
 /**
  * @category Configs
  */
 export interface ZypeUIConfig extends UIConfig {
  continueWatching?: ContinueWatchingConfig;
+ social?: SocialConfig;
 }
+

@@ -55,6 +55,8 @@ import { QuickSeekButton } from './components/quickseekbutton';
 import { NextVideoButton} from './components/nextvideobutton'
 import { PreviousVideoButton } from './components/previousvideobutton'
 import { NextVideoOverlay } from './components/nextvideooverlay'
+import { SocialOverlay } from './components/socialoverlay'
+import { SocialButton } from './components/socialbutton'
 import { ZypeUIConfig } from './zypeuiconfig';
 import { Component, ComponentConfig } from './components/component';
 
@@ -77,6 +79,10 @@ export namespace UIFactory {
 
   export function zypeUI(config: ZypeUIConfig) {
     let subtitleOverlay = new SubtitleOverlay();
+    let socialOverlay = new SocialOverlay({
+      url: config.social?.url,
+      embedCode: config.social?.embedCode
+    });
 
     let mainSettingsPanelPage: SettingsPanelPage;
 
@@ -152,25 +158,32 @@ export namespace UIFactory {
     controlsComponents.push(
       new VolumeToggleButton(),
       new VolumeSlider(),
-      new Spacer(),
+      new Spacer()
+    )
+
+    if(config.social?.url != null || config.social?.embedCode != null){
+      controlsComponents.push(new SocialButton({socialOverlay: socialOverlay}));
+    };
+
+    controlsComponents.push(
       new PictureInPictureToggleButton(),
       new AirPlayToggleButton(),
       new CastToggleButton(),
       new VRToggleButton(),
       new SettingsToggleButton({ settingsPanel: settingsPanel }),
-      new FullscreenToggleButton()
+      new FullscreenToggleButton(),
     );
 
-    let nextVideoComponents: Component<ComponentConfig>[] = [];
+    let socialPanel: Component<ComponentConfig>[] = [];
 
     if(config.continueWatching?.nextVideo){
-      nextVideoComponents.push(new NextVideoOverlay(config.continueWatching.nextVideo));
+      socialPanel.push(new NextVideoOverlay(config.continueWatching.nextVideo));
     }
 
     let controlBar = new ControlBar({
       components: [
         new Container({
-          components: nextVideoComponents,
+          components: socialPanel,
           cssClasses: ['controlbar-bottom'],
         }),
         settingsPanel,
@@ -203,6 +216,7 @@ export namespace UIFactory {
         new CastStatusOverlay(),
         controlBar,
         new TitleBar(),
+        socialOverlay,
         new RecommendationOverlay(),
         new Watermark(),
         new ErrorMessageOverlay(),
