@@ -131,6 +131,7 @@ export class AgeGateOverlay extends Container<AgeGateOverlayConfig> {
       let date = new Date(Number(year),Number(month),Number(day));
       let expiration = new Date(new Date().getTime() + this.millisecondsPerDay);
       
+      console.log("storing age values")
       StorageUtils.setItem(this.dateCookieName,date.getTime().toString());
       StorageUtils.setItem(this.expCookieName,expiration.getTime().toString());
 
@@ -147,20 +148,24 @@ export class AgeGateOverlay extends Container<AgeGateOverlayConfig> {
 
   private checkAndRenderOverlay(player: PlayerAPI): void {
     if(this.config.ageRequired != null){
+      console.log("performing age check")
       let date = Number.parseInt(StorageUtils.getItem(this.dateCookieName));
       let expiration = Number.parseInt(StorageUtils.getItem(this.expCookieName));
 
-      if(Number.isInteger(date) && 
-         Number.isInteger(expiration)){
+      if(Number.isInteger(date) && Number.isInteger(expiration)){
         if(this.validateDate(new Date(date), new Date(expiration))){
           this.hide();
-          player.play();
+          return;
         }
+      } else {
+        console.log("no age values found")
       }
 
       if(player.isPlaying()){
         player.pause();
       }
+
+      this.show();
     } else {
       this.hide();
     }
@@ -170,11 +175,13 @@ export class AgeGateOverlay extends Container<AgeGateOverlayConfig> {
     let thresholdDate = (new Date().getTime() - this.config.ageRequired*this.millisecondsPerYear);
         
     if(date.getTime() > thresholdDate){
+      console.log("failed age check")
       this.messageLabel.setText('You are not old enough to view this content.');
       this.controlsContainer.hide();
       this.submitButton.hide();
       return false;
     } else {
+      console.log("passed age check")
       return true;
     }
   }

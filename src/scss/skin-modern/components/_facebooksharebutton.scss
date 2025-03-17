@@ -5,7 +5,7 @@
   @extend %ui-button;
 
   background-image: url('../../assets/skin-modern/images/brands/facebook.svg');
-  font-size: 1.5em;
+  font-size: 2em;
 
   &:hover {
     @include svg-icon-shadow;
@@ -16,6 +16,11 @@
   &.#{$prefix}-layout-max-width-600 {
     .#{$prefix}-ui-facebooksharebutton {
       font-size: 1.2em;
+    }
+  }
+  &.#{$prefix}-layout-max-width-800 {
+    .#{$prefix}-ui-facebooksharebutton {
+      font-size: 1.5em;
     }
   }
 }

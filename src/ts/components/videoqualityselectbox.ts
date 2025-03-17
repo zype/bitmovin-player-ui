@@ -43,7 +43,6 @@ export class VideoQualitySelectBox extends SelectBox {
 
       // Add video qualities
       for (let videoQuality of videoQualities) {
-        console.log(videoQuality)
         this.addItem(videoQuality.id, videoQuality.label);
       }
 
