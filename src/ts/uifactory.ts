@@ -57,6 +57,7 @@ import { PreviousVideoButton } from './components/previousvideobutton'
 import { NextVideoOverlay } from './components/nextvideooverlay'
 import { SocialOverlay } from './components/socialoverlay'
 import { SocialButton } from './components/socialbutton'
+import { AgeGateOverlay } from './components/agegateoverlay'
 import { ZypeUIConfig } from './zypeuiconfig';
 import { Component, ComponentConfig } from './components/component';
 
@@ -83,6 +84,9 @@ export namespace UIFactory {
       url: config.social?.url,
       embedCode: config.social?.embedCode
     });
+    let ageGateOverlay = new AgeGateOverlay({
+      ageRequired: config.ageRequired
+    })
 
     let mainSettingsPanelPage: SettingsPanelPage;
 
@@ -217,6 +221,7 @@ export namespace UIFactory {
         controlBar,
         new TitleBar(),
         socialOverlay,
+        ageGateOverlay,
         new RecommendationOverlay(),
         new Watermark(),
         new ErrorMessageOverlay(),

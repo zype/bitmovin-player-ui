@@ -1,0 +1,15 @@
+@import '../variables';
+@import '../mixins';
+
+.#{$prefix}-ui-agegatecontainer {
+  @extend %ui-container;
+
+  @include hidden;
+
+  font-size: 1em;
+  margin: .3em 0;
+  
+  .bmpui-ui-selectbox {
+    font-size: 1.0em;
+  }
+}

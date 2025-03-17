@@ -1,0 +1,21 @@
+@import '../variables';
+@import '../mixins';
+
+.#{$prefix}-ui-agegate-overlay {
+  @extend %ui-container;
+
+  @include layout-cover;
+  @include layout-center-children-in-container;
+  @include hidden-animated($animation-duration * 2);
+
+  background-color: $color-background-highlight;
+
+  > .#{$prefix}-container-wrapper {
+    padding: 3em;
+  }
+  
+  .#{$prefix}-ui-container {
+    margin: .3em 0;
+  }
+}
+  

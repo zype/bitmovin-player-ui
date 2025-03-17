@@ -24,5 +24,6 @@ export interface SocialConfig {
 export interface ZypeUIConfig extends UIConfig {
  continueWatching?: ContinueWatchingConfig;
  social?: SocialConfig;
+ ageRequired?: number;
 }
 

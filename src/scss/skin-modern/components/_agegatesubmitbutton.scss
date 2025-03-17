@@ -1,0 +1,32 @@
+@import '../variables';
+@import '../mixins';
+
+.#{$prefix}-ui-agegatesubmitbutton {
+  @extend %ui-button;
+
+  background-image: url('../../assets/skin-modern/images/agegate/submit.svg');
+
+  
+  font-size: 1em;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: .25em .5em;
+
+  &:hover {
+    @include svg-icon-shadow;
+  }
+
+  .bmpui-label {
+    display: inline;
+    color: #000000;
+
+  }
+}
+
+.#{$prefix}-ui-uicontainer {
+  &.#{$prefix}-layout-max-width-600 {
+    .#{$prefix}-ui-agegatesubmitbutton {
+      font-size: 1.2em;
+    }
+  }
+}
