@@ -1,0 +1,31 @@
+@import '../../variables';
+@import '../../mixins';
+
+.#{$prefix}-ui-copyembedbutton {
+  @extend %ui-button;
+
+  background-image: url('../../assets/skin-modern/images/brands/code.svg');
+  font-size: 2em;
+
+  &:hover {
+    @include svg-icon-shadow;
+  }
+}
+
+.copied {
+  background-image: url('../../assets/skin-modern/images/brands/check.svg');
+}
+
+.#{$prefix}-ui-uicontainer {
+  &.#{$prefix}-layout-max-width-600 {
+    .#{$prefix}-ui-copyembedbutton {
+      font-size: 1.2em;
+    }
+  }
+
+  &.#{$prefix}-layout-max-width-800 {
+    .#{$prefix}-ui-copyembedbutton {
+      font-size: 1.5em;
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import '../../variables';
+@import '../../mixins';
+
+.#{$prefix}-ui-whatsappsharebutton {
+  @extend %ui-button;
+
+  background-image: url('../../assets/skin-modern/images/brands/whatsapp.svg');
+  font-size: 2em;
+
+  &:hover {
+    @include svg-icon-shadow;
+  }
+}
+
+.#{$prefix}-ui-uicontainer {
+  &.#{$prefix}-layout-max-width-600 {
+    .#{$prefix}-ui-whatsappsharebutton {
+      font-size: 1.2em;
+    }
+  }
+
+  &.#{$prefix}-layout-max-width-800 {
+    .#{$prefix}-ui-whatsappsharebutton {
+      font-size: 1.5em;
+    }
+  }
+}

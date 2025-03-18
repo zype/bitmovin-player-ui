@@ -1,0 +1,27 @@
+@import '../../variables';
+@import '../../mixins';
+
+.#{$prefix}-ui-blueskysharebutton {
+  @extend %ui-button;
+
+  background-image: url('../../assets/skin-modern/images/brands/bluesky.svg');
+  font-size: 2em;
+
+  &:hover {
+    @include svg-icon-shadow;
+  }
+}
+
+.#{$prefix}-ui-uicontainer {
+  &.#{$prefix}-layout-max-width-600 {
+    .#{$prefix}-ui-blueskysharebutton {
+      font-size: 1.2em;
+    }
+  }
+
+  &.#{$prefix}-layout-max-width-800 {
+    .#{$prefix}-ui-blueskysharebutton {
+      font-size: 1.5em;
+    }
+  }
+}

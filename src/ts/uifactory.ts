@@ -51,15 +51,19 @@ import { SpatialNavigation } from './spatialnavigation/spatialnavigation';
 import { RootNavigationGroup } from './spatialnavigation/rootnavigationgroup';
 import { ListNavigationGroup, ListOrientation } from './spatialnavigation/ListNavigationGroup';
 import { EcoModeContainer } from './components/ecomodecontainer';
-import { QuickSeekButton } from './components/quickseekbutton';
-import { NextVideoButton} from './components/nextvideobutton'
-import { PreviousVideoButton } from './components/previousvideobutton'
-import { NextVideoOverlay } from './components/nextvideooverlay'
-import { SocialOverlay } from './components/socialoverlay'
-import { SocialButton } from './components/socialbutton'
-import { AgeGateOverlay } from './components/agegateoverlay'
-import { ZypeUIConfig } from './zypeuiconfig';
+
+/**
+ * @category Zype
+ */
+import { AgeGateOverlay } from './components/zype/agegateoverlay'
 import { Component, ComponentConfig } from './components/component';
+import { QuickSeekButton } from './components/quickseekbutton';
+import { NextVideoButton} from './components/zype/nextvideobutton'
+import { NextVideoOverlay } from './components/zype/nextvideooverlay'
+import { PreviousVideoButton } from './components/zype/previousvideobutton'
+import { SocialButton } from './components/zype/socialbutton'
+import { SocialOverlay } from './components/zype/socialoverlay'
+import { ZypeUIConfig } from './zypeuiconfig';
 
 export namespace UIFactory {
   export function buildDefaultUI(player: PlayerAPI, config: UIConfig = {}): UIManager {
