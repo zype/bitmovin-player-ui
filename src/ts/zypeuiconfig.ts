@@ -10,6 +10,7 @@ export interface ContinueWatchingConfig {
 
 export interface ContinueWatchingItemConfig {
   videoTitle: string;
+  videoThumbnail: string;
   callback: () => void;
 }
 

@@ -43,7 +43,11 @@ export class VideoQualitySelectBox extends SelectBox {
 
       // Add video qualities
       for (let videoQuality of videoQualities) {
-        this.addItem(videoQuality.id, videoQuality.label);
+        if(videoQuality.height != null && videoQuality.width != null){
+          this.addItem(videoQuality.id, `${videoQuality.width}x${videoQuality.height}`);
+        } else {
+          this.addItem(videoQuality.id, videoQuality.bitrate.toString());
+        }
       }
 
       // Select initial quality

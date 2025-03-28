@@ -2,18 +2,65 @@
 @import '../../mixins';
 
 .#{$prefix}-ui-nextvideooverlay {
-  @extend %ui-button;
+  @extend %ui-container;
+  
+  @include hidden-animated($animation-duration * 2);
 
-  background-color: $color-background-highlight;
-  font-size: 1.1em;
-  margin: .3em .6em;
-  outline: 2px solid $color-highlight;
-  padding: .4em;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: .3em 0 .8em;
+  height: 4em;
+  width: 100%;
+  margin: -0.5em 0;
+  overflow: hidden;
 
-  .bmpui-label {
+  > .bmpui-container-wrapper {
+    margin: 0 8px;
+  }
+
+  .#{$prefix}-ui-nextvideo-thumbnail {
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 4em;
+    width: 4em*16/9;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  .#{$prefix}-ui-nextvideo-container {
+    display: inline-block;
+    height: 4em;
+    max-width: 100%;
+    margin-left: -4em*16/9; // cover thumbnail with container
+  }
+
+  .#{$prefix}-ui-nextvideo-countdown {
+    color: $color-highlight;
+    font-size: 1.2em;
+    line-height: 2em*(1/1.2em);   
+    font-weight: 500;
+    cursor: pointer;
+    text-shadow: 0 0 5px #000;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     display: block;
     overflow: hidden;
+    padding-left: (4em*16/9)/1.2; // add padding relative to width of thumbnail and font-size
+    margin-left: 8px;
+  }
+
+  .#{$prefix}-ui-nextvideo-title {
+    font-size: 1.1em;
+    line-height: 2em*(1/1.1em);   
+    font-weight: 500;
+    cursor: pointer;
+    text-shadow: 0 0 5px #000;
+    white-space: nowrap;
     text-overflow: ellipsis;
-    width: 100%;
+    display: block;
+    overflow: hidden;
+    padding-left: (4em*16/9)/1.1; // add padding relative to width of thumbnail and font-size
+    margin-left: 8px;
   }
 }
