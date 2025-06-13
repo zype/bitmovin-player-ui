@@ -5,3 +5,21 @@
 .#{$prefix}-ui-watermark {
   margin: 1em;
 }
+
+.#{$prefix}-ui-watermark {
+  margin: 1em;
+}
+
+.#{$prefix}-ui-uicontainer .#{$prefix}-ui-subtitle-overlay {
+  font-size: 1.8em;
+}
+
+.#{$prefix}-ui-uicontainer.#{$prefix}-layout-max-width-600 .#{$prefix}-ui-subtitle-overlay {
+  font-size: 1.2em;
+}
+.#{$prefix}-ui-uicontainer.#{$prefix}-layout-max-width-800 .#{$prefix}-ui-subtitle-overlay {
+  font-size: 1.3em;
+}
+.#{$prefix}-ui-uicontainer.#{$prefix}-layout-max-width-1200 .#{$prefix}-ui-subtitle-overlay {
+  font-size: 1.5em;
+}

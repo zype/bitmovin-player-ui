@@ -24,7 +24,7 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 4em;
-    width: 4em*16/9;
+    width: calc(4em*16/9);
     background-color: rgba(0, 0, 0, 0.7);
   }
 
@@ -32,13 +32,13 @@
     display: inline-block;
     height: 4em;
     max-width: 100%;
-    margin-left: -4em*16/9; // cover thumbnail with container
+    margin-left: calc(-4em*16/9); // cover thumbnail with container
   }
 
   .#{$prefix}-ui-nextvideo-countdown {
     color: $color-highlight;
     font-size: 1.2em;
-    line-height: 2em*(1/1.2em);   
+    line-height: calc(2em*(1/1.2em));   
     font-weight: 500;
     cursor: pointer;
     text-shadow: 0 0 5px #000;
@@ -46,13 +46,13 @@
     text-overflow: ellipsis;
     display: block;
     overflow: hidden;
-    padding-left: (4em*16/9)/1.2; // add padding relative to width of thumbnail and font-size
+    padding-left: calc((4em*16/9)/1.2); // add padding relative to width of thumbnail and font-size
     margin-left: 8px;
   }
 
   .#{$prefix}-ui-nextvideo-title {
     font-size: 1.1em;
-    line-height: 2em*(1/1.1em);   
+    line-height: calc(2em*(1/1.1em));   
     font-weight: 500;
     cursor: pointer;
     text-shadow: 0 0 5px #000;
@@ -60,7 +60,7 @@
     text-overflow: ellipsis;
     display: block;
     overflow: hidden;
-    padding-left: (4em*16/9)/1.1; // add padding relative to width of thumbnail and font-size
+    padding-left: calc((4em*16/9)/1.1); // add padding relative to width of thumbnail and font-size
     margin-left: 8px;
   }
 }
