@@ -23,3 +23,17 @@
 .#{$prefix}-ui-uicontainer.#{$prefix}-layout-max-width-1200 .#{$prefix}-ui-subtitle-overlay {
   font-size: 1.5em;
 }
+
+
+.#{$prefix}-ui-uicontainer {
+  font-family: sans-serif !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+
+.#{$prefix}-ui-uicontainer .#{$prefix}-ui-subtitle-overlay {
+  bottom: 1em;
+}
+.#{$prefix}-ui-uicontainer .#{$prefix}-ui-subtitle-overlay.#{$prefix}-controlbar-visible {
+  bottom: 4em;
+}
