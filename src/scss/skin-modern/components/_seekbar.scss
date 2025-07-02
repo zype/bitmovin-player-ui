@@ -162,3 +162,8 @@ $seekbar-height: .3125em;
 .#{$prefix}-ui-seekbar {
   @extend %ui-seekbar;
 }
+
+//needed to fix slider on Vyre Website
+#content .wpb_text_column .#{$prefix}-ui-volumeslider .#{$prefix}-seekbar .#{$prefix}-seekbar-playbackposition-marker {
+  margin: auto;
+}

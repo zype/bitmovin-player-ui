@@ -4,7 +4,7 @@
 .#{$prefix}-ui-copylinkbutton {
   @extend %ui-button;
 
-  background-image: url('../../assets/skin-modern/images/brands/link.svg');
+  @include button-background('../../assets/skin-modern/images/brands/link.svg');
   font-size: 2em;
 
   &:hover {
@@ -13,7 +13,7 @@
 }
 
 .copied {
-  background-image: url('../../assets/skin-modern/images/brands/check.svg');
+  @include button-background('../../assets/skin-modern/images/brands/check.svg');
 }
 
 .#{$prefix}-ui-uicontainer {

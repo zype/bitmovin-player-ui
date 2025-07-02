@@ -4,7 +4,7 @@
 .#{$prefix}-ui-instagramsharebutton {
   @extend %ui-button;
 
-  background-image: url('../../assets/skin-modern/images/brands/instagram.svg');
+  @include button-background('../../assets/skin-modern/images/brands/instagram.svg');
   font-size: 1.5em;
 
   &:hover {

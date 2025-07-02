@@ -4,13 +4,13 @@
 .#{$prefix}-ui-piptogglebutton {
   @extend %ui-button;
 
-  background-image: url('../../assets/skin-modern/images/picinpic1.svg');
+  @include button-background('../../assets/skin-modern/images/picinpic1.svg');
 
   &:hover {
     @include svg-icon-shadow;
   }
 
   &.#{$prefix}-on {
-    background-image: url('../../assets/skin-modern/images/picinpic1X.svg');
+    @include button-background('../../assets/skin-modern/images/picinpic1X.svg');
   }
 }

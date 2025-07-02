@@ -4,7 +4,7 @@
 .#{$prefix}-ui-linkedinsharebutton {
   @extend %ui-button;
 
-  background-image: url('../../assets/skin-modern/images/brands/linkedin.svg');
+  @include button-background('../../assets/skin-modern/images/brands/linkedin.svg');
   font-size: 2em;
 
   &:hover {
