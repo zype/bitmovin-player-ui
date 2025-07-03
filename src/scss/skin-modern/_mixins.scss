@@ -65,6 +65,7 @@
   position: absolute;
   top: 0;
   width: 100%;
+  background-color: transparent;
 }
 
 // Align to parent's bottom
@@ -159,3 +160,15 @@
 
   @return $string;
 }
+
+@mixin button-background($icon-path, $bg-size: $button-background-size) {
+  background: 
+    $button-background-color 
+    url($icon-path) 
+    $button-background-position / 
+    $bg-size 
+    $button-background-repeat 
+    $button-background-origin 
+    !important;
+}
+

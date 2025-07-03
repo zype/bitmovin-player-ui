@@ -9,10 +9,7 @@
   width: 5em;
 
   .#{$prefix}-image {
-    background-image: url('../../assets/skin-modern/images/replayX.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 5em;
+    @include button-background('../../assets/skin-modern/images/replayX.svg', 5em);
     height: 100%;
     width: 100%;
 

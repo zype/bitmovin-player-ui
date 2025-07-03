@@ -4,7 +4,7 @@
 .#{$prefix}-ui-redditsharebutton {
   @extend %ui-button;
 
-  background-image: url('../../assets/skin-modern/images/brands/reddit.svg');
+  @include button-background('../../assets/skin-modern/images/brands/reddit.svg');
   font-size: 2em;
 
   &:hover {

@@ -4,7 +4,7 @@
 .#{$prefix}-ui-previousvideobutton {
   @extend %ui-button;
 
-  background-image: url('../../assets/skin-modern/images/prev.svg');
+  @include button-background('../../assets/skin-modern/images/prev.svg');
 
   &:hover {
     @include svg-icon-shadow;

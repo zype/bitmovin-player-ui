@@ -45,10 +45,7 @@
   width: 8em;
 
   .#{$prefix}-image {
-    background-image: url('../../assets/skin-modern/images/play_big.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 7em;
+    @include button-background('../../assets/skin-modern/images/play_big.svg', 7em);
     height: 100%;
     width: 100%;
 

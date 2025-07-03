@@ -4,7 +4,8 @@
 .#{$prefix}-ui-socialclosebutton {
   @extend %ui-button;
 
-  background-image: url('../../assets/skin-modern/images/brands/close.svg');
+  @include button-background('../../assets/skin-modern/images/brands/close.svg');
+  
   font-size: 2em;
 
   &:hover {

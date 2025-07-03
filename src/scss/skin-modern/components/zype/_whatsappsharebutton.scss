@@ -4,7 +4,7 @@
 .#{$prefix}-ui-whatsappsharebutton {
   @extend %ui-button;
 
-  background-image: url('../../assets/skin-modern/images/brands/whatsapp.svg');
+  @include button-background('../../assets/skin-modern/images/brands/whatsapp.svg');
   font-size: 2em;
 
   &:hover {

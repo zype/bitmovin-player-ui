@@ -3,11 +3,11 @@
 %ui-button {
   @extend %ui-component;
 
-  background-color: transparent;
-  background-origin: content-box;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 1.5em;
+  background-color: $button-background-color;
+  background-origin: $button-background-origin;
+  background-position: $button-background-position;
+  background-repeat: $button-background-repeat;
+  background-size: $button-background-size;
   border: 0;
   box-sizing: content-box;
   cursor: pointer;

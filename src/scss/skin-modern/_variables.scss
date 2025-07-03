@@ -23,3 +23,9 @@ $animation-duration: .3s !default;
 $animation-duration-short: $animation-duration * .5 !default;
 
 $focus-element-box-shadow: 0 0 0 2px rgba($color-focus, .8);
+
+$button-background-size: 1.5em;
+$button-background-color: transparent;
+$button-background-origin: content-box;
+$button-background-position: center;
+$button-background-repeat: no-repeat;
