@@ -37,3 +37,7 @@
 .#{$prefix}-ui-uicontainer .#{$prefix}-ui-subtitle-overlay.#{$prefix}-controlbar-visible {
   bottom: 4em;
 }
+
+.bitmovinplayer-container [role="region"] {
+    position: absolute;
+}
