@@ -1,7 +1,7 @@
 @import '../variables';
 @import '../mixins';
 
-.#{$prefix}-ui-volumetogglebutton {
+.#{$prefix}-ui-volumetogglebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-volumetogglebutton {
   @extend %ui-button;
 
   &:hover {

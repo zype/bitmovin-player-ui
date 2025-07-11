@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-nextvideobutton {
+.#{$prefix}-ui-nextvideobutton, .#{$vyre-layout-theme} .#{$prefix}-ui-nextvideobutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/next.svg');

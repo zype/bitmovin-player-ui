@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-previousvideobutton {
+.#{$prefix}-ui-previousvideobutton, .#{$vyre-layout-theme} .#{$prefix}-ui-previousvideobutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/prev.svg');

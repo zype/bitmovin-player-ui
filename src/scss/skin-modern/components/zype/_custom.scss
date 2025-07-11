@@ -10,6 +10,12 @@
   margin: 1em;
 }
 
+.#{$vyre-layout-theme} .#{$prefix}-ui-watermark {
+  background: transparent;
+  background-color: transparent;
+}
+
+
 .#{$prefix}-ui-uicontainer .#{$prefix}-ui-subtitle-overlay {
   font-size: 1.8em;
 }

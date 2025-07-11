@@ -1,6 +1,6 @@
 @import '../variables';
 
-.#{$prefix}-ui-hugeplaybacktogglebutton {
+.#{$prefix}-ui-hugeplaybacktogglebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-hugeplaybacktogglebutton {
   @extend %ui-button;
 
   @keyframes #{$prefix}-fade-out {

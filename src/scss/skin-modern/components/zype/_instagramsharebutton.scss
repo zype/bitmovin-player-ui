@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-instagramsharebutton {
+.#{$prefix}-ui-instagramsharebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-instagramsharebutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/brands/instagram.svg');

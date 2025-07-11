@@ -1,7 +1,7 @@
 @import '../variables';
 @import '../mixins';
 
-.#{$prefix}-ui-replaybutton {
+.#{$prefix}-ui-replaybutton, .#{$vyre-layout-theme} .#{$prefix}-ui-replaybutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/replay-nocircle.svg');

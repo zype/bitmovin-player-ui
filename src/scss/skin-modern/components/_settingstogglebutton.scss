@@ -15,7 +15,7 @@
   }
 }
 
-.#{$prefix}-ui-settingstogglebutton {
+.#{$prefix}-ui-settingstogglebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-settingstogglebutton {
   @extend %ui-settingstogglebutton;
 
   @include button-background('../../assets/skin-modern/images/settings.svg');

@@ -1,7 +1,7 @@
 @import '../variables';
 @import '../mixins';
 
-.#{$prefix}-ui-quickseekbutton {
+.#{$prefix}-ui-quickseekbutton, .#{$vyre-layout-theme} .#{$prefix}-ui-quickseekbutton {
   @extend %ui-button;
 
   &:hover {

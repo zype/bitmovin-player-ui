@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-whatsappsharebutton {
+.#{$prefix}-ui-whatsappsharebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-whatsappsharebutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/brands/whatsapp.svg');

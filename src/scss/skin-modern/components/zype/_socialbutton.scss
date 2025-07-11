@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-socialbutton {
+.#{$prefix}-ui-socialbutton, .#{$vyre-layout-theme} .#{$prefix}-ui-socialbutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/brands/share.svg');

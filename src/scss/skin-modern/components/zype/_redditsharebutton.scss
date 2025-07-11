@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-redditsharebutton {
+.#{$prefix}-ui-redditsharebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-redditsharebutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/brands/reddit.svg');
