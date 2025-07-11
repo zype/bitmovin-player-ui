@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-blueskysharebutton {
+.#{$prefix}-ui-blueskysharebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-blueskysharebutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/brands/bluesky.svg');

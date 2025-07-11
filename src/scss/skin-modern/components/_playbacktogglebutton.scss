@@ -1,7 +1,7 @@
 @import '../variables';
 @import '../mixins';
 
-.#{$prefix}-ui-playbacktogglebutton {
+.#{$prefix}-ui-playbacktogglebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-playbacktogglebutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/play.svg');

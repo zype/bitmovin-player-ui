@@ -1,7 +1,7 @@
 @import '../variables';
 @import '../mixins';
 
-.#{$prefix}-ui-casttogglebutton {
+.#{$prefix}-ui-casttogglebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-casttogglebutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/chromecast.svg');

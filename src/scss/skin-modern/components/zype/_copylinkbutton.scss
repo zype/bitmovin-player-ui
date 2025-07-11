@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-copylinkbutton {
+.#{$prefix}-ui-copylinkbutton, .#{$vyre-layout-theme} .#{$prefix}-ui-copylinkbutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/brands/link.svg');

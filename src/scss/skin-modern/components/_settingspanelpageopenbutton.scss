@@ -18,6 +18,6 @@
   }
 }
 
-.#{$prefix}-ui-settingspanelpageopenbutton {
+.#{$prefix}-ui-settingspanelpageopenbutton, .#{$vyre-layout-theme} .#{$prefix}-ui-settingspanelpageopenbutton {
   @extend %ui-settingspanelpageopenbutton;
 }

@@ -1,7 +1,7 @@
 @import '../variables';
 @import '../mixins';
 
-.#{$prefix}-ui-fullscreentogglebutton {
+.#{$prefix}-ui-fullscreentogglebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-fullscreentogglebutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/fullscreen.svg');

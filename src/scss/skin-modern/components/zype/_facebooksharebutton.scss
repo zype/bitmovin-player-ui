@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-facebooksharebutton {
+.#{$prefix}-ui-facebooksharebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-facebooksharebutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/brands/facebook.svg');

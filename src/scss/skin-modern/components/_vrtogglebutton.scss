@@ -1,7 +1,7 @@
 @import '../variables';
 @import '../mixins';
 
-.#{$prefix}-ui-vrtogglebutton {
+.#{$prefix}-ui-vrtogglebutton, .#{$vyre-layout-theme} .#{$prefix}-ui-vrtogglebutton {
   @extend %ui-button;
 
   // svg() usage: http://pavliko.github.io/postcss-svg/

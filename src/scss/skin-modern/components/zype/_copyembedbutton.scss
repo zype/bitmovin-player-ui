@@ -1,7 +1,7 @@
 @import '../../variables';
 @import '../../mixins';
 
-.#{$prefix}-ui-copyembedbutton {
+.#{$prefix}-ui-copyembedbutton, .#{$vyre-layout-theme} .#{$prefix}-ui-copyembedbutton {
   @extend %ui-button;
 
   @include button-background('../../assets/skin-modern/images/brands/code.svg');
