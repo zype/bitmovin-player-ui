@@ -574,14 +574,14 @@ export namespace UIFactory {
           ui: modernSmallScreenAdsUI(),
           condition: (context: UIConditionContext) => {
             return (
-              context.isMobile && context.documentWidth < smallScreenSwitchWidth && context.isAd && context.adRequiresUi
+              context.isMobile && context.documentWidth < smallScreenSwitchWidth && context.isAd
             );
           },
         },
         {
           ui: modernAdsUI(),
           condition: (context: UIConditionContext) => {
-            return context.isAd && context.adRequiresUi;
+            return context.isAd;
           },
         },
         {
@@ -617,14 +617,14 @@ export namespace UIFactory {
           ui: modernSmallScreenAdsUI(),
           condition: (context: UIConditionContext) => {
             return (
-              context.isMobile && context.documentWidth < smallScreenSwitchWidth && context.isAd && context.adRequiresUi
+              context.isMobile && context.documentWidth < smallScreenSwitchWidth && context.isAd
             );
           },
         },
         {
           ui: modernAdsUI(),
           condition: (context: UIConditionContext) => {
-            return context.isAd && context.adRequiresUi;
+            return context.isAd;
           },
         },
         {
@@ -656,7 +656,7 @@ export namespace UIFactory {
         {
           ui: modernSmallScreenAdsUI(),
           condition: (context: UIConditionContext) => {
-            return context.isAd && context.adRequiresUi;
+            return context.isAd;
           },
         },
         {
